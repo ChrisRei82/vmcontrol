@@ -10,23 +10,34 @@
         VM starten
     </button>
 
+    <h3 id="status"></h3>
+
     <script>
         async function startVm() {
+            const statusEl = document.getElementById("status");
+            statusEl.innerText = "Starte VM...";
 
-            const response = await fetch(
-                "https://DEIN-WEBHOOK",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: "{}"
+            try {
+                const response = await fetch(
+                    "https://5c61ad9e-11cb-4404-92e8-a908ef2ff902.webhook.dewc.azure-automation.net/webhooks?token=YMpmHF5FI6GSwacv%2bTJ1LYX7rIzae2oC9StxDBh8jkg%3d",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: "{}"
+                    }
+                );
+
+                if (response.ok) {
+                    statusEl.innerText = "Start erfolgreich ausgelöst!";
+                } else {
+                    statusEl.innerText = "Fehler beim Auslösen.";
                 }
-            );
-
-            alert("Start ausgelöst");
+            } catch (error) {
+                statusEl.innerText = "Netzwerkfehler: " + error;
+            }
         }
     </script>
-
 </body>
 </html>
