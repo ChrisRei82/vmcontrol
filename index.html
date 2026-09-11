@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VM Control</title>
+</head>
+<body>
+    <h1>VM Control</h1>
+
+    <button onclick="startVm()">
+        VM starten
+    </button>
+
+    <script>
+        async function startVm() {
+
+            const response = await fetch(
+                "https://DEIN-WEBHOOK",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: "{}"
+                }
+            );
+
+            alert("Start ausgelöst");
+        }
+    </script>
+
+</body>
+</html>
