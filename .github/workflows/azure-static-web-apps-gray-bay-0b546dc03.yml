@@ -29,7 +29,7 @@ jobs:
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
-          api_location: "" # Keine API nötig für den direkten Webhook
+          api_location: "api" # Keine API nötig für den direkten Webhook
           output_location: "/" # Zeigt direkt auf das Root-Verzeichnis mit der index.html
           ###### End of Repository/Build Configurations ######
 
